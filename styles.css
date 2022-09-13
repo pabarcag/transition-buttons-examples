@@ -1,0 +1,180 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    color: #fff;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+    width: 90%;
+    height: 800px;
+    border: white solid 1px;
+    padding-top: 2em;
+}
+
+.button-container{
+    display: flex;
+    gap: 5em;
+}
+
+.button{
+    position: relative;
+    width: 150px;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #666666;
+
+}
+
+
+/*MODIFIERS - TRANSFORM*/
+
+
+.button--grow,
+.button--shrink,
+.button--float,
+.button--rotate{
+    transition: transform 0.2s;
+}
+
+.button--grow:hover{
+    transform: scale(1.1);
+}
+
+.button--shrink:hover{
+    transform: scale(0.9);
+}
+
+.button--float:hover{
+    transform: translateY(-5px);
+}
+
+.button--rotate:hover{
+    transform: rotate(30deg);
+}
+
+
+/*MOFIFIERS - BACKGROUND*/
+
+.button--fade,
+.button--sweep,
+.button--ribon,
+.button--shutter{
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+
+.button--fade:hover{
+    background-color: steelblue;
+    color: #000;
+}
+
+
+.button--sweep{
+    position: relative;
+    transform: translateZ(0);
+}
+
+.button--sweep::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: steelblue;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+    z-index: -1;
+}
+
+.button--sweep:hover::before{
+    transform: scaleX(1);
+    opacity: 1;
+
+}
+
+.button--ribon{
+    position: relative;
+    transform: translateZ(0);
+    overflow: hidden;
+}
+
+.button--ribon::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: steelblue;
+    z-index: -1;
+    opacity: 0;
+    transform: scaleX(0) rotate(45deg);
+    transition: transform 0.3s ease-out;
+    transform-origin: center;
+}
+
+.button--ribon:hover::before{
+    transform: scaleX(7) rotate(45deg);
+    opacity: 1;
+
+}
+
+
+
+
+
+
+
+
+
+
+.button--shutter{
+    position: relative;
+    transform: translateZ(0);
+}
+
+.button--shutter::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    background-color: steelblue;
+    z-index: -1;
+    transform-origin: center;
+}
+
+.button--shutter:hover::before{
+    transform: scaleX(1);
+}
+
+
+
+
+
+
+
+
+
