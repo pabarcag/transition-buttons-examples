@@ -19,15 +19,17 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 3em;
-    width: 90%;
-    height: 800px;
     border: white solid 1px;
-    padding-top: 2em;
+    padding: 2em 2em 2em;
 }
 
 .button-container{
+    flex-wrap: wrap;
     display: flex;
     gap: 5em;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .button{
@@ -174,10 +176,10 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 5px;
     background-color: steelblue;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease-out;
 }
 
 .button--overline:hover::before{
@@ -186,6 +188,68 @@ body{
 
 
 
+.button--underline{
+    position: relative;
+}
+
+.button--underline::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: steelblue;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.button--underline:hover::before{
+    opacity: 1;
+}
+
+
+.button--center{
+    position: relative;
+    transform: translateZ(0);
+}
+
+.button--center::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: steelblue;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    z-index: -1;
+}
+
+.button--center:hover::before{
+    transform: scaleX(1);
+    opacity: 1;
+}
 
 
 
+.button--ghost{
+    position: relative;
+}
+
+.button--ghost:hover{
+    background-color: transparent;
+}
+
+.button--ghost::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 4px solid steelblue;
+    z-index: -1;
+}
